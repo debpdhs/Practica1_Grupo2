@@ -1,0 +1,25 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/usr/share/nginx/html
+    environment:
+      - ENV=development
+    restart: unless-stopped
+
+  # Database service (optional)
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_DB: practica1
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - db_data:/var/lib/postgresql/data
+
+# volumes:
+#   db_data:
